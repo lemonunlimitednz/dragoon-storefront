@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        .hidden { display: none; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 pb-20">
@@ -15,9 +16,9 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center"><span class="text-2xl font-bold tracking-tighter uppercase">Dragoon</span></div>
+                <div class="flex items-center"><a href="index.html" class="text-2xl font-bold tracking-tighter uppercase">Dragoon</a></div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#" class="text-gray-600 font-medium">Bikes</a>
+                    <a href="rebranded_fleet.html" class="text-gray-600 font-medium">Bikes</a>
                     <a href="#" class="text-gray-600 font-medium">Accessories</a>
                     <a href="#" class="text-gray-600 font-medium">About</a>
                 </div>
@@ -28,14 +29,14 @@
 
     <div class="pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex mb-8 text-sm font-medium text-gray-500">
-            <span>Shop</span> <span class="mx-2">/</span> <span>Folding Bikes</span> <span class="mx-2">/</span> <span class="text-black">Dragoon FOLD</span>
+            <a href="rebranded_fleet.html" class="hover:text-black">Shop</a> <span class="mx-2">/</span> <a href="rebranded_fleet.html" class="hover:text-black">Folding Bikes</a> <span class="mx-2">/</span> <span class="text-black">Dragoon FOLD</span>
         </nav>
 
         <div class="lg:grid lg:grid-cols-2 lg:gap-x-12">
             <!-- Gallery -->
             <div>
                 <div class="aspect-[4/3] bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex items-center justify-center relative">
-                    <div class="text-gray-300 font-bold text-lg text-center p-12">[PHOTO: DRAGOON FOLD LOW STEP - GUNMETAL GREY]</div>
+                    <img src="images/FOLD.png" class="w-full h-full object-contain p-4" alt="Dragoon FOLD Low Step - Grey">
                     <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Sale - Save $230</div>
                 </div>
                 <div class="grid grid-cols-4 gap-4 mt-4">
@@ -77,19 +78,67 @@
                     </div>
                 </div>
 
-                <div class="mb-8">
-                    <h3 class="text-sm font-bold mb-4 uppercase tracking-widest text-gray-900">Color: <span class="text-gray-500">Gunmetal Grey</span></h3>
-                    <div class="flex space-x-3">
-                        <div class="w-8 h-8 rounded-full bg-gray-500 ring-2 ring-offset-2 ring-blue-600 cursor-pointer"></div>
-                        <div class="w-8 h-8 rounded-full bg-red-600 cursor-pointer"></div>
-                        <div class="w-8 h-8 rounded-full bg-black cursor-pointer"></div>
+                <!-- Booking Section -->
+                <div id="booking-section" class="bg-white p-6 rounded-3xl shadow-lg border border-gray-100 mb-8">
+                    <h2 class="text-xl font-bold mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        Book a Test Ride
+                    </h2>
+                    
+                    <form id="booking-form" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="date" id="book-date" required class="bg-gray-50 border-none rounded-xl py-2 px-3 text-sm focus:ring-2 focus:ring-blue-600">
+                            <input type="time" id="book-time" required class="bg-gray-50 border-none rounded-xl py-2 px-3 text-sm focus:ring-2 focus:ring-blue-600">
+                        </div>
+                        <input type="tel" id="book-phone" placeholder="Your Phone Number" required class="w-full bg-gray-50 border-none rounded-xl py-2 px-3 text-sm focus:ring-2 focus:ring-blue-600">
+                        <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white py-3 rounded-full font-bold hover:bg-blue-700 transition shadow-md">Request Test Ride</button>
+                    </form>
+
+                    <div id="success-msg" class="hidden text-center py-4">
+                        <div class="text-green-500 font-bold text-lg mb-1">Request Sent! 🍋</div>
+                        <p class="text-sm text-gray-500">Manning will receive your email shortly.</p>
                     </div>
                 </div>
 
-                <button class="w-full bg-black text-white py-4 rounded-full font-bold mb-4 hover:bg-gray-800 shadow-lg">Add to Cart</button>
-                <button class="w-full bg-blue-50 text-blue-700 py-4 rounded-full font-bold border border-blue-100">Book a Free Test Ride</button>
+                <button class="w-full bg-black text-white py-4 rounded-full font-bold mb-4 hover:bg-gray-800 shadow-lg opacity-50 cursor-not-allowed">Add to Cart (Coming Soon)</button>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            const data = {
+                date: document.getElementById('book-date').value,
+                time: document.getElementById('book-time').value,
+                phone: document.getElementById('book-phone').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:9001/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    document.getElementById('booking-form').classList.add('hidden');
+                    document.getElementById('success-msg').classList.remove('hidden');
+                } else {
+                    alert('Error sending request. Please ensure the backend is running.');
+                    btn.innerText = 'Request Test Ride';
+                    btn.disabled = false;
+                }
+            } catch (err) {
+                alert('Connection error. Please ensure the backend is running on port 9001.');
+                btn.innerText = 'Request Test Ride';
+                btn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
