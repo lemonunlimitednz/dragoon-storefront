@@ -29,21 +29,29 @@
 
     <div class="pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex mb-8 text-sm font-medium text-gray-500">
-            <a href="rebranded_fleet.html" class="hover:text-black">Shop</a> <span class="mx-2">/</span> <a href="rebranded_fleet.html" class="hover:text-black">Folding Bikes</a> <span class="mx-2">/</span> <span class="text-black">Dragoon FOLD</span>
+            <a href="rebranded_fleet.html" class="hover:text-black">Shop</a> <span class="mx-2">/</span> <a href="rebranded_fleet.html" class="hover:text-black">Folding Bikes</a> <span class="mx-2">/</span> <span class="text-black">Dragoon FOLD Low Step</span>
         </nav>
 
         <div class="lg:grid lg:grid-cols-2 lg:gap-x-12">
             <!-- Gallery -->
             <div>
                 <div class="aspect-[4/3] bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex items-center justify-center relative">
-                    <img src="images/FOLD.png" class="w-full h-full object-contain p-4" alt="Dragoon FOLD Low Step - Grey">
-                    <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Sale - Save $230</div>
+                    <img src="images/FOLD_Low_Step.JPG" id="main-product-image" class="w-full h-full object-contain p-4 transition-opacity duration-300" alt="Dragoon FOLD Low Step - Grey">
+                    <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Easy Access</div>
                 </div>
                 <div class="grid grid-cols-4 gap-4 mt-4">
-                    <div class="aspect-square rounded-xl bg-gray-200 border-2 border-blue-600"></div>
-                    <div class="aspect-square rounded-xl bg-gray-100"></div>
-                    <div class="aspect-square rounded-xl bg-gray-100"></div>
-                    <div class="aspect-square rounded-xl bg-gray-100"></div>
+                    <div class="aspect-square rounded-xl bg-gray-200 border-2 border-blue-600 cursor-pointer overflow-hidden" onclick="changeImage('images/FOLD_Low_Step.JPG', this)">
+                        <img src="images/FOLD_Low_Step.JPG" class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square rounded-xl bg-gray-100 cursor-pointer overflow-hidden" onclick="changeImage('https://image.pollinations.ai/prompt/photorealistic%20matte%20red%20low-step%20folding%20electric%20bike%20parked%20in%20a%20modern%20city%20plaza%20at%20golden%20hour%204k%20product%20photography?width=1280&height=720&nologo=true', this)">
+                        <img src="https://image.pollinations.ai/prompt/photorealistic%20matte%20red%20low-step%20folding%20electric%20bike%20parked%20in%20a%20modern%20city%20plaza%20at%20golden%20hour%204k%20product%20photography?width=1280&height=720&nologo=true" class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square rounded-xl bg-gray-100 cursor-pointer overflow-hidden" onclick="changeImage('https://image.pollinations.ai/prompt/photorealistic%20matte%20red%20low-step%20folding%20electric%20bike%20on%20a%20scenic%20coastal%20trail%20in%20New%20Zealand%20rugged%20terrain%20natural%20lighting%204k?width=1280&height=720&nologo=true', this)">
+                        <img src="https://image.pollinations.ai/prompt/photorealistic%20matte%20red%20low-step%20folding%20electric%20bike%20on%20a%20scenic%20coastal%20trail%20in%20New%20Zealand%20rugged%20terrain%20natural%20lighting%204k?width=1280&height=720&nologo=true" class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square rounded-xl bg-gray-100 cursor-pointer overflow-hidden" onclick="changeImage('https://image.pollinations.ai/prompt/studio%20product%20photography%20matte%20red%20low-step%20folding%20electric%20bike%20clean%20grey%20cyclorama%20background%20dramatic%20rim%20lighting%204k?width=1280&height=720&nologo=true', this)">
+                        <img src="https://image.pollinations.ai/prompt/studio%20product%20photography%20matte%20red%20low-step%20folding%20electric%20bike%20clean%20grey%20cyclorama%20background%20dramatic%20rim%20lighting%204k?width=1280&height=720&nologo=true" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
 
@@ -53,29 +61,60 @@
                 <div class="flex items-center space-x-2 mb-6 text-yellow-400 font-bold">★★★★★ <span class="text-sm text-gray-500 font-medium ml-2">(18 Reviews)</span></div>
                 
                 <div class="flex items-baseline space-x-4 mb-8">
-                    <span class="text-3xl font-bold text-gray-900">$2,069.00 NZD</span>
-                    <span class="text-xl text-gray-400 line-through">$2,299.00</span>
+                    <span class="text-3xl font-bold text-gray-900">$1,999.00 NZD</span>
+                    <span class="text-xl text-gray-400 line-through">$2,199.00</span>
                 </div>
 
-                <p class="text-gray-600 text-lg leading-relaxed mb-8">The ultimate urban commuter. The <strong>FOLD Low Step</strong> in Gunmetal Grey combines portability with uncompromised comfort. Our signature low-entry frame makes mounting effortless.</p>
+                <p class="text-gray-600 text-lg leading-relaxed mb-8">The ultimate lightweight folder with easy access. The <strong>FOLD Low Step</strong> in Gunmetal Grey features our signature low-entry frame for effortless mounting, a 350W motor, and a clever seatpost battery design.</p>
 
                 <div class="grid grid-cols-2 gap-4 mb-10 text-sm">
                     <div class="bg-white p-4 rounded-2xl border border-gray-100">
                         <div class="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-1">Range</div>
-                        <div class="font-bold">Up to 60km</div>
+                        <div class="font-bold">Up to 50km</div>
                     </div>
                     <div class="bg-white p-4 rounded-2xl border border-gray-100">
                         <div class="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-1">Motor</div>
-                        <div class="font-bold">250W High Torque</div>
+                        <div class="font-bold">350W (500W Peak)</div>
                     </div>
                     <div class="bg-white p-4 rounded-2xl border border-gray-100">
                         <div class="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-1">Battery</div>
-                        <div class="font-bold">36V 13Ah Lithium</div>
+                        <div class="font-bold">36V 7Ah Integrated</div>
                     </div>
                     <div class="bg-white p-4 rounded-2xl border border-gray-100">
-                        <div class="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-1">Brakes</div>
-                        <div class="font-bold">Mechanical Disc</div>
+                        <div class="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-1">Weight</div>
+                        <div class="font-bold">18.7 kg</div>
                     </div>
+                </div>
+
+                <!-- Specs Table -->
+                <div class="mt-12 border-t border-gray-200 pt-10">
+                    <h3 class="text-lg font-bold mb-6 uppercase tracking-wider">Technical Specifications</h3>
+                    <dl class="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
+                        <div class="border-b border-gray-100 pb-4">
+                            <dt class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Top Speed</dt>
+                            <dd class="text-sm font-semibold">32 km/h</dd>
+                        </div>
+                        <div class="border-b border-gray-100 pb-4">
+                            <dt class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Folded Size</dt>
+                            <dd class="text-sm font-semibold">83 x 40 x 67 cm</dd>
+                        </div>
+                        <div class="border-b border-gray-100 pb-4">
+                            <dt class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Transmission</dt>
+                            <dd class="text-sm font-semibold">Shimano 7-Speed</dd>
+                        </div>
+                        <div class="border-b border-gray-100 pb-4">
+                            <dt class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Max Load</dt>
+                            <dd class="text-sm font-semibold">100 kg</dd>
+                        </div>
+                        <div class="border-b border-gray-100 pb-4">
+                            <dt class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Tyres</dt>
+                            <dd class="text-sm font-semibold">20" x 1.95"</dd>
+                        </div>
+                        <div class="border-b border-gray-100 pb-4">
+                            <dt class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Frame</dt>
+                            <dd class="text-sm font-semibold">6061 Aluminum Alloy</dd>
+                        </div>
+                    </dl>
                 </div>
 
                 <!-- Booking Section -->
@@ -106,6 +145,23 @@
     </div>
 
     <script>
+        function changeImage(src, el) {
+            const mainImg = document.getElementById('main-product-image');
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 300);
+            
+            // Update borders
+            document.querySelectorAll('.aspect-square').forEach(div => {
+                div.classList.remove('border-2', 'border-blue-600');
+                div.classList.add('bg-gray-100');
+            });
+            el.classList.add('border-2', 'border-blue-600');
+            el.classList.remove('bg-gray-100');
+        }
+
         document.getElementById('booking-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
@@ -119,7 +175,7 @@
             };
 
             try {
-                const response = await fetch('http://localhost:9001/book', {
+                const response = await fetch('https://dragoon-backend-production.up.railway.app/book', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -134,7 +190,7 @@
                     btn.disabled = false;
                 }
             } catch (err) {
-                alert('Connection error. Please ensure the backend is running on port 9001.');
+                alert('Connection error. Please ensure the backend is live.');
                 btn.innerText = 'Request Test Ride';
                 btn.disabled = false;
             }
