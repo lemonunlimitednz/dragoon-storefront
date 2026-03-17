@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragoon Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center"><a href="index.html" class="text-2xl font-bold tracking-tighter uppercase">Dragoon</a></div>
+                <div class="flex items-center gap-6 text-sm font-medium text-gray-600">
+                    <a href="rebranded_fleet.html" class="hover:text-black">Bikes</a>
+                    <a href="cart.html" class="text-black font-bold">Cart</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+            <p class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2">Your Cart</p>
+            <h1 class="text-4xl font-extrabold tracking-tight">Review your order</h1>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_380px] gap-8">
+            <section class="bg-white rounded-3xl border border-gray-100 shadow-sm p-6">
+                <div id="cart-items" class="space-y-4"></div>
+                <div id="empty-state" class="hidden py-12 text-center">
+                    <p class="text-lg font-semibold mb-2">Your cart is empty.</p>
+                    <p class="text-gray-500 mb-6">Add a Dragoon bike to get started.</p>
+                    <a href="rebranded_fleet.html" class="inline-flex bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition">Browse bikes</a>
+                </div>
+            </section>
+
+            <aside class="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 h-fit">
+                <h2 class="text-xl font-bold mb-6">Order summary</h2>
+                <div class="space-y-3 text-sm mb-6">
+                    <div class="flex justify-between"><span class="text-gray-500">Items</span><span id="summary-count">0</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Subtotal</span><span id="summary-subtotal">$0.00 NZD</span></div>
+                </div>
+                <div class="border-t border-gray-100 pt-4 mb-6 flex justify-between font-bold text-lg">
+                    <span>Total</span><span id="summary-total">$0.00 NZD</span>
+                </div>
+                <button id="checkout-btn" class="w-full bg-black text-white py-4 rounded-full font-bold hover:bg-gray-800 transition">Proceed to checkout</button>
+                <p class="text-xs text-gray-500 mt-4">Checkout can be connected next. For now, this captures cart selections locally.</p>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        const CART_KEY = 'dragoon-cart';
+        const currency = new Intl.NumberFormat('en-NZ', { style: 'currency', currency: 'NZD' });
+
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch { return []; }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        function removeItem(index) {
+            const cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            renderCart();
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const itemsEl = document.getElementById('cart-items');
+            const emptyEl = document.getElementById('empty-state');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+            document.getElementById('summary-count').textContent = count;
+            document.getElementById('summary-subtotal').textContent = `${currency.format(subtotal)} NZD`.replace('NZ$', '$');
+            document.getElementById('summary-total').textContent = `${currency.format(subtotal)} NZD`.replace('NZ$', '$');
+
+            if (!cart.length) {
+                itemsEl.innerHTML = '';
+                emptyEl.classList.remove('hidden');
+                return;
+            }
+
+            emptyEl.classList.add('hidden');
+            itemsEl.innerHTML = cart.map((item, index) => `
+                <div class="border border-gray-100 rounded-2xl p-4 flex gap-4 items-center">
+                    <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-contain rounded-xl bg-gray-50 p-2">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <h3 class="font-bold text-lg">${item.name}</h3>
+                                <p class="text-sm text-gray-500">Colour: ${item.colour}</p>
+                                <p class="text-sm text-gray-500">Quantity: ${item.quantity}</p>
+                            </div>
+                            <button onclick="removeItem(${index})" class="text-sm font-bold text-red-600 hover:text-red-700">Remove</button>
+                        </div>
+                        <p class="font-bold mt-3">${currency.format(item.price).replace('NZ$', '$')} NZD</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Checkout flow can be connected next. Your cart is saved locally for now.');
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>

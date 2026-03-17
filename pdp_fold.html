@@ -25,7 +25,7 @@
                     <a href="#" class="text-gray-600 font-medium">Accessories</a>
                     <a href="#" class="text-gray-600 font-medium">About</a>
                 </div>
-                <div class="flex items-center"><svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg></div>
+                <div class="flex items-center"><a href="cart.html" class="relative"><svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg><span id="cart-count" class="absolute -top-2 -right-2 inline-flex min-w-[1.1rem] h-4 px-1 items-center justify-center rounded-full bg-blue-600 text-white text-[10px] font-bold">0</span></a></div>
             </div>
         </div>
     </nav>
@@ -145,7 +145,7 @@
                     </div>
                 </div>
 
-                <button class="w-full bg-black text-white py-4 rounded-full font-bold mb-4 hover:bg-gray-800 shadow-lg opacity-50 cursor-not-allowed">Add to Cart (Coming Soon)</button>
+                <button id="add-to-cart-btn" type="button" class="w-full bg-black text-white py-4 rounded-full font-bold mb-4 hover:bg-gray-800 transition shadow-lg">Add to Cart</button>
             </div>
         </div>
 
@@ -231,7 +231,35 @@
             if (match) changeColour(match, false);
         }
 
+        function getSelectedColour() {
+            const active = document.querySelector('.colour-option.border-2');
+            return active ? active.dataset.label : 'Red';
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('dragoon-cart') || '[]');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.getElementById('cart-count');
+            if (badge) badge.textContent = count;
+        }
+
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            const cart = JSON.parse(localStorage.getItem('dragoon-cart') || '[]');
+            cart.push({
+                sku: `dragoon-fold-${getSelectedColour().toLowerCase()}`,
+                name: 'Dragoon FOLD',
+                colour: getSelectedColour(),
+                price: 2299,
+                quantity: 1,
+                image: document.getElementById('main-product-image').getAttribute('src')
+            });
+            localStorage.setItem('dragoon-cart', JSON.stringify(cart));
+            updateCartCount();
+            window.location.href = 'cart.html';
+        });
+
         initColourFromUrl();
+        updateCartCount();
 
         document.getElementById('booking-form').addEventListener('submit', async (e) => {
             e.preventDefault();

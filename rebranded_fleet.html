@@ -25,6 +25,7 @@
                 </div>
                 <div class="flex items-center space-x-4">
                     <a href="rebranded_fleet.html" class="bg-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">Shop Now</a>
+                    <a href="cart.html" class="relative text-sm font-semibold text-black hover:text-blue-600 transition">Cart <span id="cart-count" class="ml-1 inline-flex min-w-[1.25rem] h-5 px-1.5 items-center justify-center rounded-full bg-blue-600 text-white text-[10px] font-bold">0</span></a>
                 </div>
             </div>
         </div>
@@ -81,5 +82,11 @@
             <p class="text-gray-500 uppercase tracking-widest text-[10px]">&copy; 2026 Dragoon Bikes. Optimized by Lemonade 🍋</p>
         </div>
     </footer>
+    <script>
+        const cart = JSON.parse(localStorage.getItem('dragoon-cart') || '[]');
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const badge = document.getElementById('cart-count');
+        if (badge) badge.textContent = count;
+    </script>
 </body>
 </html>
