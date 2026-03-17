@@ -3,91 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragoon Bikes | Conquer the Commute</title>
+    <title>Dragoon Bikes | NZ's Best Value E-Bikes</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        :root { --accent: #2563eb; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+        .nav-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .text-balance { text-wrap: balance; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border: 1px border-white/50; }
+        
+        /* Cowboy-style Cinema Effects */
+        @keyframes ken-burns {
+            0% { transform: scale(1); translate: 0 0; }
+            100% { transform: scale(1.1); translate: -1% -1%; }
+        }
+        .ken-burns-animation {
+            animation: ken-burns 20s ease-in-out infinite alternate;
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: reveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes reveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 antialiased">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a href="index.html" class="text-2xl font-bold tracking-tighter text-gray-900 uppercase">Dragoon</a>
+    <nav class="fixed w-full z-50 bg-white/70 nav-blur border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-12">
+                    <a href="index.html" class="text-2xl font-black tracking-tighter text-black uppercase">Dragoon</a>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#bikes" class="text-sm font-medium text-gray-600 hover:text-black transition">Electric Bikes</a>
+                        <a href="#tech" class="text-sm font-medium text-gray-600 hover:text-black transition">Technology</a>
+                        <a href="#test-ride" class="text-sm font-medium text-gray-600 hover:text-black transition">Test Ride</a>
+                    </div>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="rebranded_fleet.html" class="text-gray-600 hover:text-black transition font-medium">Bikes</a>
-                    <a href="#" class="text-gray-600 hover:text-black transition font-medium">Accessories</a>
-                    <a href="#" class="text-gray-600 hover:text-black transition font-medium">Servicing</a>
-                    <a href="#" class="text-gray-600 hover:text-black transition font-medium">About</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="rebranded_fleet.html" class="bg-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">Shop Now</a>
+                <div class="flex items-center space-x-6">
+                    <a href="rebranded_fleet.html" class="hidden sm:block text-sm font-semibold text-black px-6 py-2.5 rounded-full border border-black hover:bg-black hover:text-white transition duration-300">Shop Now</a>
+                    <span class="text-xs font-bold text-blue-600 hidden lg:block">📍 Auckland, NZ</span>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6">
-                        Conquer the Commute.<br/>
-                        <span class="text-blue-600">Ride Dragoon.</span>
+    <section class="relative min-h-[90vh] flex items-center pt-20 hero-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 z-10 reveal-up">
+                    <div class="inline-flex items-center space-x-2 py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        <span>Dragoon Fold Series Now Available</span>
+                    </div>
+                    <h1 class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-[0.9] mb-8 text-balance">
+                        Conquer.<br/>
+                        Commute.<br/>
+                        <span class="text-blue-600">Dragoon.</span>
                     </h1>
-                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
-                        Engineering for the urban warrior. High-torque motors, long-range batteries, and a design that turns heads at every intersection.
+                    <p class="text-xl text-gray-500 mb-10 max-w-md leading-relaxed">
+                        Precision engineering for the urban navigator. The ultimate foldable e-bike series, designed for Auckland's hills and your busy lifestyle.
                     </p>
-                    <div class="flex space-x-4">
-                        <button class="bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition">Shop Bikes</button>
-                        <button class="bg-gray-100 text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition">Book Test Ride</button>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#bikes" class="bg-black text-white px-10 py-5 rounded-full font-bold text-center hover:scale-105 transition-transform duration-300 shadow-xl">View All Bikes</a>
+                        <a href="#test-ride" class="bg-gray-100 text-black px-10 py-5 rounded-full font-bold text-center hover:bg-gray-200 transition duration-300">Book Free Test Ride</a>
                     </div>
                 </div>
-                <div class="relative bg-gray-100 rounded-3xl aspect-[4/3] flex items-center justify-center text-gray-400 text-xl font-bold shadow-2xl">
-                    [HERO IMAGE: DRAGOON E-BIKE]
+                <div class="lg:col-span-7 relative reveal-up" style="animation-delay: 0.2s;">
+                    <div class="relative rounded-3xl overflow-hidden shadow-[0_40px_100px_-15px_rgba(0,0,0,0.1)]">
+                        <div class="w-full h-full overflow-hidden">
+                            <img src="images/dragoon_fold_set/city_hero_auckland_hd.png" alt="Dragoon Fold riding through an Auckland-inspired waterfront cityscape" class="w-full h-auto object-cover ken-burns-animation">
+                        </div>
+                        <div class="absolute bottom-8 right-8 bg-white/90 nav-blur p-5 rounded-2xl shadow-xl border border-white/50 hidden md:block">
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                    <span class="text-xs font-bold text-gray-800">14Ah High-Capacity Battery</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    <span class="text-xs font-bold text-gray-800">32km/h Max Assisted Speed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1a1 1 0 112 0v1a1 1 0 11-2 0zM13.536 15.657a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM16 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1z"></path></svg>
+    <!-- Head-to-Head Section (Qualisports/Dragoon NZ Value Proposition) -->
+    <section class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-4xl font-extrabold tracking-tight mb-8">The choice is clear.</h2>
+                    <p class="text-gray-600 text-lg mb-12">We offer significantly lower prices for high-quality electric bikes without cutting corners. Compare the specs yourself.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-blue-600">Dragoon Fold Series</h4>
+                                <p class="text-sm text-gray-500">Premium Components, Vinka Power</p>
+                            </div>
+                            <span class="text-xl font-black text-black">From $2,199 NZD</span>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-2xl border border-dashed border-gray-300 flex justify-between items-center opacity-60">
+                            <div>
+                                <h4 class="font-bold">Standard Competitors</h4>
+                                <p class="text-sm text-gray-500">Disc Brakes, 8-Speed, 13Ah</p>
+                            </div>
+                            <span class="text-xl font-bold text-gray-400">$3,400+ NZD</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Instant Torque</h3>
-                    <p class="text-gray-600">Bafang motors tailored for steep gradients and quick acceleration.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z"></path></svg>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Vinka Powered</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Ultra-reliable motor system capable of speeds up to 32km/h.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">80km Range</h3>
-                    <p class="text-gray-600">High-density cells providing reliable power for your longest rides.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm">
+                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">SGS Certified</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">UL 2849 & 2271 certified for safety and reliability.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Local Warranty</h3>
-                    <p class="text-gray-600">Full support and servicing right here in New Zealand.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="bikes" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-20 text-center">
+                <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-balance">The Perfect Bike For Every Occasion</h2>
+                <p class="text-gray-500 text-lg">Visit our Meadowbank showroom for a free test ride.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Bike 1: DRAGOON FOLD -->
+                <div class="group">
+                    <div class="aspect-square bg-gray-50 rounded-3xl mb-8 overflow-hidden relative border border-gray-100">
+                        <img src="images/Dragoon_Fold_Red.png" alt="Dragoon Fold" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-6 left-6">
+                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">High Performance</span>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold mb-2">Dragoon Fold</h3>
+                        <ul class="text-sm text-gray-500 space-y-1 mb-6">
+                            <li>• Seat-Post Battery System</li>
+                            <li>• Folds in under 10 seconds</li>
+                            <li>• Lightweight Alloy Frame</li>
+                            <li>• Perfect for Urban Commuting</li>
+                        </ul>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="font-black text-xl text-black">$2,199</span>
+                            <div class="flex flex-col items-end space-y-1">
+                                <a href="pdp_fold.html" class="text-blue-600 font-bold text-xs">View Specs →</a>
+                                <a href="rebranded_fleet.html" class="text-gray-400 font-bold text-[10px] uppercase tracking-wider">Configure</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bike 2: DRAGOON FOLD LOW STEP -->
+                <div class="group">
+                    <div class="aspect-square bg-gray-50 rounded-3xl mb-8 overflow-hidden relative border border-gray-100">
+                        <img src="images/FOLD_White_BG_1200x628.png" alt="Dragoon Fold Low Step" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-6 left-6">
+                            <span class="bg-black text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Easy Access</span>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold mb-2">Dragoon Fold Low Step</h3>
+                        <ul class="text-sm text-gray-500 space-y-1 mb-6">
+                            <li>• Step-Through Frame Design</li>
+                            <li>• 14Ah High-Capacity Battery</li>
+                            <li>• Hydraulic Brakes (Superior Stopping)</li>
+                            <li>• Comfortable Upright Riding Position</li>
+                        </ul>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                            <span class="font-black text-xl text-black">$2,499</span>
+                            <div class="flex flex-col items-end space-y-1">
+                                <a href="pdp_low_step.html" class="text-blue-600 font-bold text-xs">View Specs →</a>
+                                <a href="rebranded_fleet.html" class="text-gray-400 font-bold text-[10px] uppercase tracking-wider">Configure</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section: Ultra-Large Typography (Everything Under Control) -->
+    <section id="tech" class="py-32 bg-gray-950 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-12 text-balance">
+                        Everything. <br/>
+                        Under control.
+                    </h2>
+                    <div class="space-y-12">
+                        <div class="border-l-2 border-blue-600 pl-8">
+                            <h3 class="text-2xl font-bold mb-4">Smart Tracking</h3>
+                            <p class="text-gray-400 text-lg leading-relaxed">Integrated GPS ensures your Dragoon is always where you left it. Instant alerts and crash detection come standard.</p>
+                        </div>
+                        <div class="border-l-2 border-gray-800 pl-8 hover:border-blue-600 transition-colors duration-300">
+                            <h3 class="text-2xl font-bold mb-4">Adaptive Power</h3>
+                            <p class="text-gray-400 text-lg leading-relaxed">Our custom-tuned Vinka motors sense your effort and deliver the perfect boost for every hill.</p>
+                        </div>
+                        <div class="border-l-2 border-gray-800 pl-8 hover:border-blue-600 transition-colors duration-300">
+                            <h3 class="text-2xl font-bold mb-4">Urban Comfort</h3>
+                            <p class="text-gray-400 text-lg leading-relaxed">Foldable in seconds. Store it under your desk or in your trunk. Performance without compromise.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="images/dragoon_fold_set/urban_commuter_hd.png" alt="Dragoon Fold urban commuter lifestyle" class="rounded-3xl shadow-2xl scale-110 translate-x-10 rotate-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press / Social Proof -->
+    <section class="py-20 border-y border-gray-100 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap justify-between items-center opacity-30 grayscale gap-8">
+                <span class="text-xl font-bold italic tracking-tighter">TECHCRUNCH</span>
+                <span class="text-xl font-bold tracking-tight">THE VERGE</span>
+                <span class="text-xl font-bold uppercase">Wired</span>
+                <span class="text-xl font-bold tracking-widest">GQ</span>
+                <span class="text-xl font-black italic">Forbes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="test-ride" class="py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8">Ready to ride?</h2>
+            <p class="text-gray-500 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">Experience the thrill of a Dragoon e-bike. Book your free test ride at our Auckland showroom today.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="tel:02108757951" class="bg-black text-white px-12 py-5 rounded-full font-bold hover:scale-105 transition duration-300 shadow-xl">Call 021 087 57951</a>
+                <a href="#test-ride" class="bg-blue-600 text-white px-12 py-5 rounded-full font-bold hover:bg-blue-700 transition duration-300 shadow-xl">Book Test Ride Online</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-500">&copy; 2026 Dragoon Bikes. Built by Lemonade 🍋</p>
+    <footer class="bg-white py-20 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <a href="index.html" class="text-2xl font-black uppercase tracking-tighter">Dragoon</a>
+                    <p class="mt-4 text-gray-500 max-w-sm">Leading New Zealand in high-value, high-performance electric transportation. SGS Certified and Vinka Powered.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-gray-400">Visit Us</h5>
+                    <p class="text-sm text-gray-500 leading-relaxed">Meadowbank Shopping Centre<br/>Auckland, New Zealand<br/>Mon-Fri: 9am - 5pm</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-gray-400">Connect</h5>
+                    <div class="flex flex-col space-y-2 text-sm text-gray-500">
+                        <a href="#" class="hover:text-black">Instagram</a>
+                        <a href="#" class="hover:text-black">Facebook</a>
+                        <a href="#" class="hover:text-black">Service Portal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-400">© 2026 Dragoon Bikes NZ. Prices in NZD.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-xs text-gray-400 hover:text-black transition">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-400 hover:text-black transition">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
