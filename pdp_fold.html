@@ -142,7 +142,7 @@
 
                     <div id="success-msg" class="hidden text-center py-4">
                         <div class="text-green-500 font-bold text-lg mb-1">Request Sent! 🍋</div>
-                        <p class="text-sm text-gray-500">Manning will receive your email shortly.</p>
+                        <p class="text-sm text-gray-500">We will contact you shortly.</p>
                     </div>
                 </div>
 
@@ -247,7 +247,7 @@
             };
 
             try {
-                const response = await fetch('http://localhost:9001/book', {
+                const response = await fetch('https://dragoon-backend-production.up.railway.app/book', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
