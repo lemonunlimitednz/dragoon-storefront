@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful | Dragoon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <main class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-xl w-full bg-white rounded-3xl border border-gray-100 shadow-sm p-10 text-center">
+            <div class="mx-auto mb-6 w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-3xl">✓</div>
+            <p class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2">Payment Successful</p>
+            <h1 class="text-4xl font-extrabold tracking-tight mb-4">Thank you for your order</h1>
+            <p class="text-gray-500 text-lg mb-8">Your payment has been received successfully. We will contact you shortly with next steps.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html" class="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition">Back to homepage</a>
+                <a href="rebranded_fleet.html" class="bg-gray-100 text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition">Browse bikes</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        localStorage.removeItem('dragoon-cart');
+    </script>
+</body>
+</html>
