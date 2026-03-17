@@ -63,12 +63,25 @@
                 <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 mb-2 uppercase">Dragoon FOLD <span class="text-gray-400">|</span> Low Step</h1>
                 <div class="flex items-center space-x-2 mb-6 text-yellow-400 font-bold">★★★★★ <span class="text-sm text-gray-500 font-medium ml-2">(18 Reviews)</span></div>
                 
-                <div class="flex items-baseline space-x-4 mb-8">
+                <div class="flex items-baseline space-x-4 mb-6">
                     <span class="text-3xl font-bold text-gray-900">$1,999.00 NZD</span>
                     <span class="text-xl text-gray-400 line-through">$2,199.00</span>
                 </div>
 
-                <p class="text-gray-600 text-lg leading-relaxed mb-8">The ultimate lightweight folder with easy access. The <strong>FOLD Low Step</strong> in Gunmetal Grey features our signature low-entry frame for effortless mounting, a 350W motor, and a clever seatpost battery design.</p>
+                <div class="mb-8">
+                    <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Colour</p>
+                    <div class="flex gap-3 flex-wrap">
+                        <button type="button" class="colour-option inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-gray-700" data-label="Red" onclick="changeColour(this)">
+                            <span class="h-3 w-3 rounded-full bg-red-600"></span> Red
+                        </button>
+                        <button type="button" class="colour-option inline-flex items-center gap-2 rounded-full border-2 border-blue-600 bg-white px-4 py-2 text-sm font-bold text-gray-900" data-label="Grey" onclick="changeColour(this)">
+                            <span class="h-3 w-3 rounded-full bg-gray-500"></span> Grey
+                        </button>
+                    </div>
+                    <p id="colour-preview-note" class="mt-3 text-xs text-gray-500">Preview currently shown in Grey.</p>
+                </div>
+
+                <p id="product-description" class="text-gray-600 text-lg leading-relaxed mb-8">The ultimate lightweight folder with easy access. The <strong>FOLD Low Step</strong> in gunmetal grey features our signature low-entry frame for effortless mounting, a 350W motor, and a clever seatpost battery design.</p>
 
                 <div class="grid grid-cols-2 gap-4 mb-10 text-sm">
                     <div class="bg-white p-4 rounded-2xl border border-gray-100">
@@ -190,6 +203,27 @@
             });
             el.classList.add('border-2', 'border-blue-600');
             el.classList.remove('border', 'border-gray-200');
+        }
+
+        function changeColour(el) {
+            const note = document.getElementById('colour-preview-note');
+            const description = document.getElementById('product-description');
+            const label = el.dataset.label;
+
+            document.querySelectorAll('.colour-option').forEach((btn) => {
+                btn.classList.remove('border-2', 'border-blue-600', 'text-gray-900');
+                btn.classList.add('border', 'border-gray-200', 'text-gray-700');
+            });
+            el.classList.add('border-2', 'border-blue-600', 'text-gray-900');
+            el.classList.remove('border', 'border-gray-200', 'text-gray-700');
+
+            note.textContent = label === 'Grey'
+                ? 'Preview currently shown in Grey.'
+                : 'Red selected. Preview image still shown in Grey until a red Low Step product render is added.';
+
+            description.innerHTML = `The ultimate lightweight folder with easy access. The <strong>FOLD Low Step</strong> in ${label === 'Red' ? 'bold red' : 'gunmetal grey'} features our signature low-entry frame for effortless mounting, a 350W motor, and a clever seatpost battery design.`;
+            document.title = `Dragoon FOLD Low Step | ${label}`;
+            document.getElementById('main-product-image').alt = `Dragoon FOLD Low Step - ${label}`;
         }
 
         document.getElementById('booking-form').addEventListener('submit', async (e) => {
