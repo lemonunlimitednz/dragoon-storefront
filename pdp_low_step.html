@@ -205,7 +205,7 @@
             el.classList.remove('border', 'border-gray-200');
         }
 
-        function changeColour(el) {
+        function changeColour(el, updateUrl = true) {
             const note = document.getElementById('colour-preview-note');
             const description = document.getElementById('product-description');
             const label = el.dataset.label;
@@ -224,7 +224,23 @@
             description.innerHTML = `The ultimate lightweight folder with easy access. The <strong>FOLD Low Step</strong> in ${label === 'Red' ? 'bold red' : 'gunmetal grey'} features our signature low-entry frame for effortless mounting, a 350W motor, and a clever seatpost battery design.`;
             document.title = `Dragoon FOLD Low Step | ${label}`;
             document.getElementById('main-product-image').alt = `Dragoon FOLD Low Step - ${label}`;
+
+            if (updateUrl) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('colour', label.toLowerCase());
+                window.history.replaceState({}, '', url);
+            }
         }
+
+        function initColourFromUrl() {
+            const url = new URL(window.location.href);
+            const colour = url.searchParams.get('colour');
+            if (!colour) return;
+            const match = Array.from(document.querySelectorAll('.colour-option')).find((btn) => btn.dataset.label.toLowerCase() === colour.toLowerCase());
+            if (match) changeColour(match, false);
+        }
+
+        initColourFromUrl();
 
         document.getElementById('booking-form').addEventListener('submit', async (e) => {
             e.preventDefault();

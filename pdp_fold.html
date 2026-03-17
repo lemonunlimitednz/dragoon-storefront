@@ -196,7 +196,7 @@
             el.classList.remove('border', 'border-gray-200');
         }
 
-        function changeColour(el) {
+        function changeColour(el, updateUrl = true) {
             const mainImg = document.getElementById('main-product-image');
             const description = document.getElementById('product-description');
             const label = el.dataset.label;
@@ -216,7 +216,23 @@
             });
             el.classList.add('border-2', 'border-blue-600', 'text-gray-900');
             el.classList.remove('border', 'border-gray-200', 'text-gray-700');
+
+            if (updateUrl) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('colour', label.toLowerCase());
+                window.history.replaceState({}, '', url);
+            }
         }
+
+        function initColourFromUrl() {
+            const url = new URL(window.location.href);
+            const colour = url.searchParams.get('colour');
+            if (!colour) return;
+            const match = Array.from(document.querySelectorAll('.colour-option')).find((btn) => btn.dataset.label.toLowerCase() === colour.toLowerCase());
+            if (match) changeColour(match, false);
+        }
+
+        initColourFromUrl();
 
         document.getElementById('booking-form').addEventListener('submit', async (e) => {
             e.preventDefault();
