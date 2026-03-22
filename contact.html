@@ -111,6 +111,10 @@
 
         const result = await response.json();
 
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to send message.');
+        }
+
         statusMessage.classList.remove('hidden', 'text-red-600');
         statusMessage.classList.add('text-green-600');
         statusMessage.textContent = 'Thank you! Your message has been sent.';
@@ -120,7 +124,7 @@
       } catch (error) {
         statusMessage.classList.remove('hidden', 'text-green-600');
         statusMessage.classList.add('text-red-600');
-        statusMessage.textContent = 'Oops! Something went wrong. Please try again.';
+        statusMessage.textContent = error.message || 'Oops! Something went wrong. Please try again.';
         console.error('Contact form error:', error);
       } finally {
         submitBtn.disabled = false;
