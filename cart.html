@@ -64,6 +64,9 @@
                             <option value="north">North Island - Excluding Auckland</option>
                             <option value="south">South Island</option>
                         </select>
+                        <div id="pickup-info" class="text-sm text-blue-600 bg-blue-50 p-3 rounded-lg border border-blue-100 hidden">
+                            <strong>Pickup Info:</strong> Pick up by appointment - Newmarket, Auckland.
+                        </div>
                         <div class="flex justify-between font-bold text-sm text-gray-700 py-2">
                             <span>Delivery Fee</span>
                             <span id="delivery-fee-display">$0.00 NZD</span>
@@ -119,7 +122,12 @@
             // Assume items > $1000 are bikes
             const bikeCount = cart.reduce((sum, item) => sum + (item.price > 1000 ? item.quantity : 0), 0);
             
-            if (option === 'pickup') return 0;
+            if (option === 'pickup') {
+                document.getElementById('pickup-info').classList.remove('hidden');
+                return 0;
+            } else {
+                document.getElementById('pickup-info').classList.add('hidden');
+            }
             
             // If no bikes, assume small flat fee for accessories, or 0. Let's use 15 for shipped accessories.
             if (bikeCount === 0) return 15;
@@ -127,9 +135,9 @@
             if (option === 'auckland') {
                 return bikeCount === 1 ? 55 : 99;
             } else if (option === 'north') {
-                return bikeCount === 1 ? 65 : 120; // Defaulting >1 bike to 120
+                return bikeCount === 1 ? 65 : 99; 
             } else if (option === 'south') {
-                return bikeCount === 1 ? 95 : 180; // Defaulting South Island
+                return bikeCount === 1 ? 130 : 199; 
             }
             return 0;
         }
