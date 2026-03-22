@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
   <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
@@ -17,35 +17,373 @@
           <a href="rebranded_fleet.html" class="hover:text-black">Bikes</a>
           <a href="accessories.html" class="text-black font-bold">Accessories</a>
           <a href="about.html" class="hover:text-black">About</a>
+          <a href="cart.html" class="relative text-sm font-semibold text-black hover:text-blue-600 transition">Cart <span id="cart-count" class="ml-1 inline-flex min-w-[1.25rem] h-5 px-1.5 items-center justify-center rounded-full bg-blue-600 text-white text-[10px] font-bold">0</span></a>
         </div>
       </div>
     </div>
   </nav>
 
-  <main class="pt-24 pb-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2">Accessories</p>
-    <h1 class="text-4xl font-extrabold tracking-tight mb-4">Accessories</h1>
-    <p class="text-gray-500 text-lg mb-12 max-w-2xl">A curated range of practical add-ons for everyday riding. Helmets, locks, storage, visibility gear, and other essentials can be added here as the range expands.</p>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm p-8">
-        <h2 class="text-xl font-bold mb-3">Helmets</h2>
-        <p class="text-gray-500">Protective gear options for commuter and recreational riders.</p>
-      </div>
-      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm p-8">
-        <h2 class="text-xl font-bold mb-3">Locks</h2>
-        <p class="text-gray-500">Security accessories for daily parking and urban use.</p>
-      </div>
-      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm p-8">
-        <h2 class="text-xl font-bold mb-3">Storage & Utility</h2>
-        <p class="text-gray-500">Baskets, bags, and practical carrying solutions for everyday trips.</p>
+  <main class="pt-24 pb-20 flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <p class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-2">Shop All</p>
+        <h1 class="text-4xl font-extrabold tracking-tight">Accessories</h1>
       </div>
     </div>
+    
+    <p class="text-gray-500 text-lg mb-12 max-w-2xl">Upgrade your ride with our premium selection of accessories, tools, and spare parts designed to keep you moving smoothly.</p>
 
-    <div class="mt-12 rounded-3xl bg-white border border-gray-100 shadow-sm p-8">
-      <h2 class="text-2xl font-bold mb-4">Coming Soon</h2>
-      <p class="text-gray-500">This page is set up and ready for a full accessories catalog once products and pricing are finalized.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      
+      <!-- Shimano Tourney TY300 -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/d391420f-6da9-463d-8102-e2d345e5e39d/255307.jpeg" alt="Shimano Tourney TY300 6/7-Speed Rear Derailleur" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Shimano Tourney TY300 6/7-Speed Rear Derailleur</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$31.99</span>
+            <button onclick="addToCart('Shimano Tourney TY300 6/7-Speed Rear Derailleur', 31.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/d391420f-6da9-463d-8102-e2d345e5e39d/255307.jpeg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROCKBROS BIKE TIRE REPAIR KIT -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow opacity-75">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/a88039e8-6c37-4d02-8c68-b8a42181fa8e/1_ff1464ad-aa60-4cf0-af49-c575168a4364.jpg" alt="ROCKBROS BIKE TIRE REPAIR KIT" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300 grayscale">
+          <span class="absolute top-3 right-3 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded">Sold Out</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">ROCKBROS BIKE TIRE REPAIR KIT</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$44.99</span>
+            <button class="text-gray-400 font-semibold text-sm cursor-not-allowed" disabled>Out of Stock</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROCKBROS Bicycle Bell Ring / Electronic Loud Horn -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/70a2a9fd-34a7-45c8-8f4b-31bbcd9f9b2f/1671819515_max.jpeg" alt="ROCKBROS Bicycle Bell Ring / Electronic Loud Horn" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">ROCKBROS Bicycle Bell Ring / Electronic Loud Horn</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$24.99</span>
+            <button onclick="addToCart('ROCKBROS Bicycle Bell Ring / Electronic Loud Horn', 24.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/70a2a9fd-34a7-45c8-8f4b-31bbcd9f9b2f/1671819515_max.jpeg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROCKBROS Bicycle lock -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow opacity-75">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/626d262c-7419-4eaf-9ec4-7a34da56a711/RKS531-BK_01.jpeg" alt="ROCKBROS Bicycle lock" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300 grayscale">
+          <span class="absolute top-3 right-3 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded">Sold Out</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">ROCKBROS Bicycle lock</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$31.99</span>
+            <button class="text-gray-400 font-semibold text-sm cursor-not-allowed" disabled>Out of Stock</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROCKBROS Bicycle Pump 220PSI -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/27b10717-a5e2-4229-a03c-7e3823fe2cdf/S674d9c29ea124a6aa89d3bbeeadb2fbfR.jpg" alt="ROCKBROS Bicycle Pump 220PSI" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">ROCKBROS Bicycle Pump 220PSI</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$49.99</span>
+            <button onclick="addToCart('ROCKBROS Bicycle Pump 220PSI', 49.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/27b10717-a5e2-4229-a03c-7e3823fe2cdf/S674d9c29ea124a6aa89d3bbeeadb2fbfR.jpg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROCKBROS Rear Light + Remote Control -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/26d53d56-fbf7-46c7-80f1-9d074780dfda/1_ad97cf26-62b2-4c0b-bc95-a3a67ff86c60.jpg" alt="ROCKBROS Rear Light + Remote Control" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">ROCKBROS Rear Light + Remote Control</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$69.99</span>
+            <button onclick="addToCart('ROCKBROS Rear Light + Remote Control', 69.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/26d53d56-fbf7-46c7-80f1-9d074780dfda/1_ad97cf26-62b2-4c0b-bc95-a3a67ff86c60.jpg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROCKBROS Portable Air Pump -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/b782cb0a-6d00-4e63-94df-8f2126c57d1a/61LoGSIZZFL._AC_SL1500_.jpg" alt="ROCKBROS Portable Air Pump" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">ROCKBROS Portable Air Pump</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$125.99</span>
+            <button onclick="addToCart('ROCKBROS Portable Air Pump', 125.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/b782cb0a-6d00-4e63-94df-8f2126c57d1a/61LoGSIZZFL._AC_SL1500_.jpg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rockbros Bicycle Front Bag & Phone Holder -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/b330eaf0-a0b8-44cd-8b1b-8b9f2b1fb0b6/810C4N-j-7L._AC_SL1500_.jpg" alt="Rockbros Bicycle Front Bag & Phone Holder" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Rockbros Bicycle Front Bag & Phone Holder</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$59.99</span>
+            <button onclick="addToCart('Rockbros Bicycle Front Bag & Phone Holder', 59.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/b330eaf0-a0b8-44cd-8b1b-8b9f2b1fb0b6/810C4N-j-7L._AC_SL1500_.jpg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bicycle Tire Tube -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/28c560fb-20ff-4a19-9235-9ed3780fd964/1000014190.jpg" alt="Bicycle Tire Tube" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Bicycle Tire Tube</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$14.99</span>
+            <button class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loom Wire For Dragoon Scooter -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/d586a330-9acc-45cb-a41b-54a866b0498e/20241206_095115.jpg" alt="Loom Wire For Dragoon Scooter" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Loom Wire For Dragoon Scooter</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$14.99</span>
+            <button class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 36V 16A Electric Scooter Controller -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/cb4f3d3f-c988-48f8-b0af-28e153885250/61-qHxkkgHL._AC_UF894%2C1000_QL80_.jpg" alt="36V 16A Electric Scooter Controller" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">36V 16A Electric Scooter Controller</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$89.99</span>
+            <button onclick="addToCart('36V 16A Electric Scooter Controller', 89.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/cb4f3d3f-c988-48f8-b0af-28e153885250/61-qHxkkgHL._AC_UF894%2C1000_QL80_.jpg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bicycle front LED head light -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1662161867060-1Z2LGZQ8XNVJE5KQJH8O/HTB17kZhNFXXXXa2XVXXq6xXFXXXz.jpeg" alt="Bicycle front LED head light" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Bicycle front LED head light</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$32.99</span>
+            <button class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bicycle Ceramic Disc Brake Pads -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow opacity-75">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1660178871820-RWZYKQQMY0LAU5VQV0HH/4.png" alt="Bicycle Ceramic Disc Brake Pads" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300 grayscale">
+          <span class="absolute top-3 right-3 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded">Sold Out</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Bicycle Ceramic Disc Brake Pads</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$19.99</span>
+            <button class="text-gray-400 font-semibold text-sm cursor-not-allowed" disabled>Out of Stock</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-Scooter Solid Tyre 8" -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1659652195650-8H4QBJ2UULOCJRFNZZ4R/51jkAZKHn6L._AC_SL1100_.jpg" alt="E-Scooter Solid Tyre 8&#34;" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">E-Scooter Solid Tyre 8"</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$39.99</span>
+            <button class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carbon Fibre Bicycle Water Bottle Holder -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1652143191891-AOS8YRTY1HYEQ87QJC4W/H1fbd7cf6568b49d8a6c619c2c8523b65w.jpeg" alt="Carbon Fibre Bicycle Water Bottle Holder" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Carbon Fibre Bicycle Water Bottle Holder</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$48.99</span>
+            <button onclick="addToCart('Carbon Fibre Bicycle Water Bottle Holder', 48.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1652143191891-AOS8YRTY1HYEQ87QJC4W/H1fbd7cf6568b49d8a6c619c2c8523b65w.jpeg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meroca Rear Bike Light -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1652135549291-JI5XI1H1GWUCBERAT7U0/51Vosu2SVXL._AC_SL1000_.jpg" alt="Meroca Rear Bike Light" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">Meroca Rear Bike Light</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$35.99</span>
+            <button onclick="addToCart('Meroca Rear Bike Light', 35.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1652135549291-JI5XI1H1GWUCBERAT7U0/51Vosu2SVXL._AC_SL1000_.jpg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RockBros 1000 Lumen Rechargeable Bicycle Light -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1651803932576-4NJP59V8Z92AGV6X6C0X/258282572+%281%29.jpeg" alt="RockBros 1000 Lumen Rechargeable Bicycle Light" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">RockBros 1000 Lumen Rechargeable Bicycle Light</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$79.99</span>
+            <button onclick="addToCart('RockBros 1000 Lumen Rechargeable Bicycle Light', 79.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1651803932576-4NJP59V8Z92AGV6X6C0X/258282572+%281%29.jpeg')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLAMP LOCK 63mm -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1650589589467-JT6X4JZ6UBZWHMSH4GPO/Screen+Shot+2022-04-22+at+1.02.53+PM.png" alt="CLAMP LOCK 63mm" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">CLAMP LOCK 63mm</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$39.99</span>
+            <button onclick="addToCart('CLAMP LOCK 63mm', 39.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1650589589467-JT6X4JZ6UBZWHMSH4GPO/Screen+Shot+2022-04-22+at+1.02.53+PM.png')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAMSUNG BATTERY 36V 14aH -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow opacity-75">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1650588862829-LE5T04P1W6A8KKFP6WI9/Screen+Shot+2022-04-22+at+12.53.41+PM.png" alt="SAMSUNG BATTERY 36V 14aH" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300 grayscale">
+          <span class="absolute top-3 right-3 bg-gray-900 text-white text-xs font-bold px-2 py-1 rounded">Sold Out</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">SAMSUNG BATTERY 36V 14aH</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$719.99</span>
+            <button class="text-gray-400 font-semibold text-sm cursor-not-allowed" disabled>Out of Stock</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- LCD Display Screen for eBike -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
+        <div class="aspect-square bg-gray-50 relative overflow-hidden flex items-center justify-center p-4">
+          <img src="https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1650586041188-MMCG70LVI7TMG0YEIF9K/10.png" alt="LCD Display Screen for eBike" class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-sm font-bold mb-2 line-clamp-2">LCD Display Screen for eBike</h3>
+          <div class="mt-auto flex items-center justify-between pt-4">
+            <span class="text-lg font-extrabold">$69.99</span>
+            <button onclick="addToCart('LCD Display Screen for eBike', 69.99, 'https://images.squarespace-cdn.com/content/v1/5eb8ac165fc210091c15eb00/1650586041188-MMCG70LVI7TMG0YEIF9K/10.png')" class="text-blue-600 font-semibold text-sm hover:text-blue-800">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </main>
+
+  <footer class="bg-white border-t border-gray-100 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-gray-500">© 2026 Dragoon Bikes. All rights reserved.</p>
+        <div class="flex gap-4 text-sm text-gray-500">
+          <a href="#" class="hover:text-black">Privacy Policy</a>
+          <a href="#" class="hover:text-black">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const CART_KEY = 'dragoon-cart';
+
+    function getCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch { return []; }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      updateCartBadge();
+    }
+
+    function updateCartBadge() {
+      const cart = getCart();
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const badge = document.getElementById('cart-count');
+      if (badge) badge.textContent = count;
+    }
+
+    function addToCart(name, price, image) {
+      const cart = getCart();
+      const existing = cart.find(item => item.name === name);
+      
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          name,
+          price,
+          image,
+          quantity: 1,
+          colour: 'Default'
+        });
+      }
+      
+      saveCart(cart);
+      
+      // Optional: Visual feedback
+      const btn = event.target;
+      const originalText = btn.textContent;
+      btn.textContent = 'Added!';
+      btn.classList.add('text-green-600');
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove('text-green-600');
+      }, 2000);
+    }
+
+    // Initial badge update
+    updateCartBadge();
+  </script>
 </body>
 </html>
