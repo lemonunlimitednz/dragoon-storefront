@@ -56,6 +56,19 @@
                         <input id="checkout-name" type="text" placeholder="Full name" required class="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm border border-gray-100">
                         <input id="checkout-email" type="email" placeholder="Email" required class="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm border border-gray-100">
                         <input id="checkout-phone" type="tel" placeholder="Phone number" required class="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm border border-gray-100">
+                        
+                        <h3 class="font-bold text-lg mt-6 mb-2">Delivery Option</h3>
+                        <select id="checkout-delivery" required class="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                            <option value="pickup">Store Pickup ($0)</option>
+                            <option value="auckland">Auckland</option>
+                            <option value="north">North Island - Excluding Auckland</option>
+                            <option value="south">South Island</option>
+                        </select>
+                        <div class="flex justify-between font-bold text-sm text-gray-700 py-2">
+                            <span>Delivery Fee</span>
+                            <span id="delivery-fee-display">$0.00 NZD</span>
+                        </div>
+
                         <textarea id="checkout-notes" placeholder="Delivery notes or questions" class="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm border border-gray-100 min-h-[100px]"></textarea>
                         <button type="submit" id="checkout-submit" class="w-full bg-blue-600 text-white py-3 rounded-full font-bold hover:bg-blue-700 transition">Continue to Stripe</button>
                     </form>
@@ -99,6 +112,53 @@
             };
         }
 
+        function getDeliveryFee() {
+            const cart = getCart();
+            const option = document.getElementById('checkout-delivery')?.value || 'pickup';
+            
+            // Assume items > $1000 are bikes
+            const bikeCount = cart.reduce((sum, item) => sum + (item.price > 1000 ? item.quantity : 0), 0);
+            
+            if (option === 'pickup') return 0;
+            
+            // If no bikes, assume small flat fee for accessories, or 0. Let's use 15 for shipped accessories.
+            if (bikeCount === 0) return 15;
+
+            if (option === 'auckland') {
+                return bikeCount === 1 ? 55 : 99;
+            } else if (option === 'north') {
+                return bikeCount === 1 ? 65 : 120; // Defaulting >1 bike to 120
+            } else if (option === 'south') {
+                return bikeCount === 1 ? 95 : 180; // Defaulting South Island
+            }
+            return 0;
+        }
+
+        function updateDeliveryFeeDisplay() {
+            const fee = getDeliveryFee();
+            const feeDisplay = document.getElementById('delivery-fee-display');
+            if (feeDisplay) {
+                feeDisplay.textContent = fee === 0 ? 'Free' : `${currency.format(fee)} NZD`.replace('NZ$', '$');
+            }
+            
+            // Update total as well
+            const cart = getCart();
+            const { subtotal } = getTotals(cart);
+            const total = subtotal + fee;
+            const totalDisplay = document.getElementById('summary-total');
+            if (totalDisplay) {
+                totalDisplay.textContent = `${currency.format(total)} NZD`.replace('NZ$', '$');
+            }
+        }
+
+        // Listen for delivery option changes
+        document.addEventListener('DOMContentLoaded', () => {
+            const deliverySelect = document.getElementById('checkout-delivery');
+            if (deliverySelect) {
+                deliverySelect.addEventListener('change', updateDeliveryFeeDisplay);
+            }
+        });
+
         function renderCart() {
             const cart = getCart();
             const itemsEl = document.getElementById('cart-items');
@@ -138,6 +198,8 @@
                     </div>
                 </div>
             `).join('');
+
+            updateDeliveryFeeDisplay();
         }
 
         document.getElementById('checkout-btn').addEventListener('click', () => {
@@ -160,6 +222,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         items: cart,
+                        deliveryOption: document.getElementById('checkout-delivery').value,
                         customer: {
                             name: document.getElementById('checkout-name').value,
                             email: document.getElementById('checkout-email').value,
