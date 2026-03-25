@@ -129,8 +129,8 @@
                 document.getElementById('pickup-info').classList.add('hidden');
             }
             
-            // If no bikes, assume small flat fee for accessories, or 0. Let's use 15 for shipped accessories.
-            if (bikeCount === 0) return 15;
+            // If no bikes, use a small flat shipping fee for accessories.
+            if (bikeCount === 0) return 10;
 
             if (option === 'auckland') {
                 return bikeCount === 1 ? 55 : 99;
